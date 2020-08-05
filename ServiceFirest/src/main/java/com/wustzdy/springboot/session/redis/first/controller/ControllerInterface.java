@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface ControllerInterface {
     @RequestMapping("/setSession/{key}/{value}")
     public String setSession(@PathVariable("key") String key, @PathVariable("value") String value);
+
     @RequestMapping("/getSession/{key}")
     public String getSession(@PathVariable(name = "key") String key);
 }

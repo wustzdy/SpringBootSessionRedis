@@ -15,11 +15,12 @@ import java.util.Enumeration;
  */
 @Controller
 public class TestController {
-    @Autowired
+   /* @Autowired
     private ControllerInterface controllerInterface;
-
+*/
     /**
      * session设置
+     *
      * @param key
      * @param value
      * @param request
@@ -27,13 +28,13 @@ public class TestController {
      */
     @ResponseBody
     @RequestMapping("/setSession/{key}/{value}")
-    public String setSession(@PathVariable String key , @PathVariable String value,
-                             HttpServletRequest request){
-        request.getSession().setAttribute(key,value);
+    public String setSession(@PathVariable String key, @PathVariable String value,
+                             HttpServletRequest request) {
+        request.getSession().setAttribute(key, value);
         Enumeration<String> headers = request.getHeaderNames();
-        while (headers.hasMoreElements()){
+        while (headers.hasMoreElements()) {
             String name = headers.nextElement();
-            System.out.println(name + ":"+ request.getHeader(name));
+            System.out.println(name + ":" + request.getHeader(name));
         }
         System.out.println(request.getSession().getId());
         return request.getSession().getId();
@@ -41,24 +42,26 @@ public class TestController {
 
     /**
      * 读取session
+     *
      * @param key
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping("/getSession/{key}")
-    public String getSession(@PathVariable String key ,HttpServletRequest request){
-        return request.getSession().getAttribute(key) + "---- sessionId:" + request.getSession().getId() ;
+    public String getSession(@PathVariable String key, HttpServletRequest request) {
+        return request.getSession().getAttribute(key) + "---- sessionId:" + request.getSession().getId();
     }
 
     /**
      * 测试feign的session问题。
+     *
      * @param key
      * @return
      */
-    @ResponseBody
+    /*@ResponseBody
     @RequestMapping("/testFeign/{key}")
-    public String testFeign(@PathVariable String key,HttpServletRequest request) {
+    public String testFeign(@PathVariable String key, HttpServletRequest request) {
         return controllerInterface.getSession(key);
-    }
+    }*/
 }
