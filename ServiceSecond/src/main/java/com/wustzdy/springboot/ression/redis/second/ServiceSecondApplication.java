@@ -7,8 +7,8 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 
 @SpringBootApplication
 @EnableRedisHttpSession//增加redissession缓存支持
-public class ServiceTwoApplication {
+public class ServiceSecondApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ServiceTwoApplication.class,args);
+        SpringApplication.run(ServiceSecondApplication.class,args);
     }
 }
